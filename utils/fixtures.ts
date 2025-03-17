@@ -1,15 +1,23 @@
 import { test as base } from '@playwright/test';
-import { HomePage } from '../page-objects/homePage';
+import { HomePageAnonimus } from '../page-objects/homePageAnonimus';
 import { SignInPage } from '../page-objects/signInPage';
+import { HomePageSignedIn } from '../page-objects/homePageSignedIn';
 
 export const test = base.extend<{
-    homePage: HomePage;
+    homePageAnonimus: HomePageAnonimus;
+    homePageSignedIn: HomePageSignedIn;
     signInPage: SignInPage;
 }>({
-  homePage: async ({ page }, use) => {
-    const homePage = new HomePage(page);
-    await homePage.open();
-    await use(homePage);
+  homePageAnonimus: async ({ page }, use) => {
+    const homePageAnonimus = new HomePageAnonimus(page);
+    await homePageAnonimus.open();
+    await use(homePageAnonimus);
+  },
+
+  homePageSignedIn: async ({ page }, use) => {
+    const homePageSignedIn = new HomePageSignedIn(page);
+    //await homePageSignedIn.open();
+    await use(homePageSignedIn);
   },
 
   signInPage: async ({ page }, use) => {

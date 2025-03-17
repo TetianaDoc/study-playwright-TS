@@ -1,6 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 
-export class HomePage{
+export class HomePageAnonimus{
     readonly page: Page
 
     constructor(page: Page){
@@ -26,4 +26,5 @@ export class HomePage{
     getDescription(): Locator{
         return this.page.locator('app-article-list p').first()
     }
+    
 }
