@@ -16,6 +16,6 @@ test.beforeEach(async ({page}) => {
   })
 })
 
-test('has title', async ({ homePage }) => {
-  await expect(homePage.getSidebar()).toHaveText('Popular Tags');
+test('has new tags', async ({ homePageAnonimus }) => {
+  await expect(homePageAnonimus.getSidebar()).toHaveText('Popular Tags');
 });

@@ -13,4 +13,11 @@ async open() {
 getEmailPlaceholder(): Locator {
     return this.page.locator('.form-group input[placeholder="Email"]')
 }
+async login() {
+    await this.page.locator('[formcontrolname="email"]').fill('tanya_sol@test.com');
+    await this.page.locator('[formcontrolname="password"]').fill('userway');
+    await this.page.getByRole('button').click();
+    await this.page.waitForURL('https://conduit.bondaracademy.com/')
+}
+
 }

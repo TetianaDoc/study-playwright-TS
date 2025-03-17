@@ -14,7 +14,7 @@ test.beforeEach(async ({page}) => {
   })
 })
 
-test('has article title and description modified', async ({ homePage }) => {
-  await expect(homePage.getTitle()).toContainText('this is test title');
-  await expect(homePage.getDescription()).toContainText('this is description');
+test('article has title and description modified', async ({ homePageAnonimus }) => {
+  await expect(homePageAnonimus.getTitle()).toContainText('this is test title');
+  await expect(homePageAnonimus.getDescription()).toContainText('this is description');
 });
