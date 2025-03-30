@@ -33,4 +33,5 @@ export class HomePageSignedIn{
         await this.page.waitForSelector('.banner h1')
         await expect(this.getArticleTitleCreated()).toHaveText(title);
     }
+    
 }
