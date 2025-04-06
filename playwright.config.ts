@@ -35,19 +35,40 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'all', testMatch: '*.spec.ts'
+    },
+    {
+      name: 'setup', testMatch: 'setup/auth.setup.ts'
+    },
+    {
+      name: 'home', 
+      testMatch: 'home/*.spec.ts',
+      use: { ...devices['Desktop Chrome'] },
+      // dependencies: ['setup']
+    },
+    {
+      name: 'signed', 
+      testMatch: 'tests/signed/*spec.ts',
+      use: { ...devices['Desktop Chrome'] },
+      // dependencies: ['setup']
+    },
+    {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      //dependencies: ['setup']
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'], storageState: '.auth/user.json' },
+    //   dependencies: ['setup']
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'], storageState: '.auth/user.json' },
+    //   dependencies: ['setup']
+    // },
 
     /* Test against mobile viewports. */
     // {
