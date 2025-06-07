@@ -1,4 +1,4 @@
-import { test, expect} from '../utils/fixtures';
+import { test, expect} from '../../utils/fixtures';
 
 //API call - login, create the article, and delete the article
 

@@ -1,5 +1,5 @@
-import { SignInPage } from '../page-objects/signInPage';
-import { test, expect} from '../utils/fixtures';
+import { SignInPage } from '../../page-objects/signInPage';
+import { test, expect} from '../../utils/fixtures';
 
 //API call - login, create the article, and delete the article
 

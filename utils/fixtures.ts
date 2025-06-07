@@ -9,14 +9,26 @@ export const test = base.extend<{
     signInPage: SignInPage;
 }>({
   homePageAnonimus: async ({ page }, use) => {
+    // ✅ Intercept BEFORE navigation
+    await page.route('**/api/articles**', async route => {
+      console.log('[INTERCEPT] Modifying /api/articles response');
+      const response = await route.fetch();
+      const body = await response.json();
+      body.articles[0].title = 'this is test title';
+      body.articles[0].description = 'this is description';
+      await route.fulfill({ body: JSON.stringify(body) });
+    });
+
+    // ✅ THEN navigate using page object
     const homePageAnonimus = new HomePageAnonimus(page);
     await homePageAnonimus.open();
+
+    // ✅ Provide the fixture to the test
     await use(homePageAnonimus);
   },
 
   homePageSignedIn: async ({ page }, use) => {
     const homePageSignedIn = new HomePageSignedIn(page);
-    //await homePageSignedIn.open();
     await use(homePageSignedIn);
   },
 

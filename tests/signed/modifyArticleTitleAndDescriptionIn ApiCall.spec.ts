@@ -1,4 +1,4 @@
-import { test, expect} from '../utils/fixtures';
+import { test, expect} from '../../utils/fixtures';
 
 //modify API request - intercept API request and provide modified title and description for the article
 test.beforeEach(async ({page}) => {
