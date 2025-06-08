@@ -1,5 +1,5 @@
-import { test, expect} from '../utils/fixtures';
-import tags from '../test-data/tags.json'
+import { test, expect} from '../../utils/fixtures';
+import tags from '../../test-data/tags.json'
 
 //mocking API request - intercept API request and provide our own response - new tags
 test.beforeEach(async ({page}) => {
@@ -16,6 +16,6 @@ test.beforeEach(async ({page}) => {
   })
 })
 
-test('has new tags', async ({ homePageAnonimus }) => {
+test('has new tags', async ({ homePageAnonimus }) => {//
   await expect(homePageAnonimus.getSidebar()).toHaveText('Popular Tags');
 });
